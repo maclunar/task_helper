@@ -8,12 +8,14 @@
   <tr>
     <th>Number</th>
     <th>Title</th>
+    <th>Finished?</th>
   </tr>
 
   <% @tasks.each do |task| %>
     <tr>
       <td><%= task.number %></td>
       <td><%= task.title %></td>
+      <td><%= task.is_finished? %></td>
       <td><%= link_to 'Show', task_path(task) %></td>
       <td><%= link_to 'Edit', edit_task_path(task) %></td>
       <td><%= link_to 'Delete', task_path(task), method: :destroy,

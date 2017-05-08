@@ -13,6 +13,33 @@
   <%= @task.description %>
 </p>
 
+<p>
+  <strong>Steps:</strong>
+  <% @task.steps.each do |step| %>
+    <ul>
+      <li><%= step %></li>
+    </ul>
+  <% end %>
+</p>
+
+<h2>Add a step:</h2>
+<%= form_for([@task, @task.steps.build]) do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :finished %>
+    <%= f.check_box :finished %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
+
 <%= link_to 'Back', tasks_path %>
 <%= link_to 'Edit', edit_task_path(@task) %>
 <%= link_to 'Delete', task_path(@task), method: :delete,
