@@ -17,7 +17,18 @@
   <strong>Steps:</strong>
   <% @task.steps.each do |step| %>
     <ul>
-      <li><%= step %></li>
+      <li>
+        <%= step %>
+        <% if step.finished? %>
+          <%= button_to 'Unfinish', { controller: 'steps',
+                                      action: 'unfinish',
+                                      step_id: step.id} %>
+        <% else %>
+          <%= button_to 'Finish', { controller: 'steps',
+                                    action: 'finish',
+                                    step_id: step.id} %>
+        <% end %>
+      </li>
     </ul>
   <% end %>
 </p>
