@@ -8,6 +8,8 @@
   <%= @task.description %>
 </p>
 
+<%= link_to 'Edit', edit_task_path(@task) %>
+
 <p>
   <strong>Steps:</strong>
   <% @task.steps.each do |step| %>
@@ -27,7 +29,7 @@
   <% end %>
 </p>
 
-<h2>Add a step:</h2>
+<p>New step:</p>
 <%= form_for([@task, @task.steps.build]) do |f| %>
   <p>
     <%= f.label :title %>
@@ -46,6 +48,5 @@
 <% end %>
 
 <%= link_to 'Back', tasks_path %>
-<%= link_to 'Edit', edit_task_path(@task) %>
 <%= link_to 'Delete', task_path(@task), method: :delete,
                       data: { confirm: 'Are you sure?' } %>
