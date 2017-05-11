@@ -4,9 +4,6 @@ class Step < ApplicationRecord
   def to_s
     title.to_s
   end
-  #def to_s
-    #( finished? ? '✓' : '✗' ) + '  ' + title.to_s
-  #end
 
   def finish!
     update_column(:finished, true)

@@ -1,0 +1,42 @@
+h1
+  =< @task.title
+
+- !@task.description.blank?
+  p
+    strong Description:
+    =< @task.description
+
+= link_to 'Edit', edit_task_path(@task)
+
+p
+  strong Steps:
+  - @task.steps.each do |step|
+    ul
+      li
+        - if step.finished?
+          => link_to '✅', { controller: 'steps', action: 'unfinish',
+                             step_id: step.id }, { method: :post }
+        - else
+          => link_to '❌', { controller: 'steps', action: 'finish',
+                             step_id: step.id }, { method: :post }
+
+        => step
+        = link_to '🗑️', task_step_path(@task, step), method: :delete
+
+p
+  | Add step:
+  = form_for([@task, @task.steps.build]) do |f|
+    p
+      => f.label :title
+      = f.text_field :title
+
+    p
+      => f.label :finished
+      => f.check_box :finished
+
+      = f.submit
+
+
+=> link_to 'Back', tasks_path
+= link_to 'Delete', task_path(@task), method: :delete,
+                      data: { confirm: 'Are you sure?' }
