@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.all.order(:number)
+    @tasks = Task.all.order(:title)
   end
 
   def new

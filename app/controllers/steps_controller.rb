@@ -5,6 +5,14 @@ class StepsController < ApplicationController
     redirect_to task_path(@task)
   end
 
+  def destroy
+    @task = Task.find(params[:task_id])
+    @step = @task.steps.find(params[:id])
+    @step.destroy
+
+    redirect_to task_path(@step.task)
+  end
+
   def finish
     @step = Step.find(params[:step_id])
     @step.finish!

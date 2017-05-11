@@ -6,6 +6,10 @@ class Task < ApplicationRecord
     steps_remaining == 0
   end
 
+  def status
+    is_finished? ? '✓' : '✗'
+  end
+
   def steps_remaining
     steps.where(finished: false).count
   end

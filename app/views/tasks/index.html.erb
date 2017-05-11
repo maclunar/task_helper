@@ -13,7 +13,7 @@
   <% @tasks.each do |task| %>
     <tr>
       <td><%= task.title %></td>
-      <td><%= task.is_finished? %></td>
+      <td><%= task.status %></td>
       <td><%= link_to 'Show', task_path(task) %></td>
       <td><%= link_to 'Edit', edit_task_path(task) %></td>
       <td><%= link_to 'Delete', task_path(task), method: :destroy,

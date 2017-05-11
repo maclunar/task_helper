@@ -15,12 +15,13 @@
       <li>
         <% if step.finished? %>
           <%= link_to '☑', { controller: 'steps', action: 'unfinish',
-                             step_id: step.id}, { method: :post }%>
+                             step_id: step.id }, { method: :post }%>
         <% else %>
           <%= link_to '☐', { controller: 'steps', action: 'finish',
-                             step_id: step.id}, { method: :post }%>
+                             step_id: step.id }, { method: :post }%>
         <% end %>
         <%= step %>
+        <%= link_to '×', task_step_path(@task, step), method: :delete %>
       </li>
     </ul>
   <% end %>
