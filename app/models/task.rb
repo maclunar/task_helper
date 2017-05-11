@@ -1,6 +1,5 @@
 class Task < ApplicationRecord
   has_many :steps, dependent: :destroy
-  validates :number, presence: true
   validates :title, presence: true, length: { minimum: 3 }
 
   def is_finished?
@@ -10,4 +9,5 @@ class Task < ApplicationRecord
   def steps_remaining
     steps.where(finished: false).count
   end
+
 end

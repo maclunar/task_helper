@@ -1,9 +1,4 @@
 <p>
-  <strong>Number:</strong>
-  <%= @task.number %>
-</p>
-
-<p>
   <strong>Title:</strong>
   <%= @task.title %>
 </p>
@@ -18,16 +13,14 @@
   <% @task.steps.each do |step| %>
     <ul>
       <li>
-        <%= step %>
         <% if step.finished? %>
-          <%= button_to 'Unfinish', { controller: 'steps',
-                                      action: 'unfinish',
-                                      step_id: step.id} %>
+          <%= link_to '☑', { controller: 'steps', action: 'unfinish',
+                             step_id: step.id}, { method: :post }%>
         <% else %>
-          <%= button_to 'Finish', { controller: 'steps',
-                                    action: 'finish',
-                                    step_id: step.id} %>
+          <%= link_to '☐', { controller: 'steps', action: 'finish',
+                             step_id: step.id}, { method: :post }%>
         <% end %>
+        <%= step %>
       </li>
     </ul>
   <% end %>
