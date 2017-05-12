@@ -19,7 +19,7 @@
 body {
   background: #eee;
   font-family: Inconsolata, Menlo, monospace;
-  width: 600px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
