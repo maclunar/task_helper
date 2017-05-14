@@ -21,4 +21,10 @@
     = f.text_area(:description, size: '40x10')
 
   p
+    => radio_button_tag(:preset, 'backend')
+    => label_tag(:preset_backend, 'Backend steps')
+    => radio_button_tag(:preset, 'frontend')
+    = label_tag(:preset_frontend, 'Frontend steps')
+
+  p
     = f.submit

@@ -17,7 +17,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = Task.new(task_params, params[:preset])
+
+    if params[:preset].any?
+      @task.add_preset_steps(params[:preset])
+    end
 
     if @task.save
       redirect_to @task

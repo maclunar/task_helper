@@ -1,4 +1,13 @@
 class Task < ApplicationRecord
+  BACKEND_PRESETS = ['request specs',
+                     'check if PR is approved',
+                     'merge to staging',
+                     'test on staging',
+                     'sync OneSky',
+                     'merge to master',
+                     'run deploy on production',
+                     "move card to 'On Production'"]
+
   has_many :steps, dependent: :destroy
   validates :title, presence: true, length: { minimum: 3 }
 
@@ -12,6 +21,17 @@ class Task < ApplicationRecord
 
   def steps_remaining
     steps.where(finished: false).count
+  end
+
+  def add_preset_steps(preset)
+    binding.pry
+    case preset
+    when 'backend'
+      BACKEND_PRESETS.each do |preset|
+        this.steps.create(title: preset.to_s, finished: false)
+      end
+    when 'frontend'
+    end
   end
 
 end
