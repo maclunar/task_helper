@@ -1,11 +1,24 @@
 class Task < ApplicationRecord
   BACKEND_PRESETS = ['request specs',
                      'check if PR is approved',
+                     'check if circleCI passed',
                      'merge to staging',
                      'test on staging',
                      'sync OneSky',
                      'merge to master',
                      'run deploy on production',
+                     "move card to 'On Production'"]
+  FRONTEND_PRESETS = ['request specs',
+                     'check if PR is approved',
+                     'check if circleCI passed',
+                     'test via rev_key on web',
+                     'test via rev_key on mobile',
+                     'merge to staging',
+                     'test on staging',
+                     'sync OneSky',
+                     'merge to master',
+                     'test on master with rev_key',
+                     'activate revision',
                      "move card to 'On Production'"]
 
   has_many :steps, dependent: :destroy
@@ -31,6 +44,9 @@ class Task < ApplicationRecord
         this.steps.create(title: preset.to_s, finished: false)
       end
     when 'frontend'
+      FRONTEND_PRESETS.each do |preset|
+        this.steps.create(title: preset.to_s, finished: false)
+      end
     end
   end
 
