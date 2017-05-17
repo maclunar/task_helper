@@ -37,15 +37,14 @@ class Task < ApplicationRecord
   end
 
   def add_preset_steps(preset)
-    binding.pry
     case preset
     when 'backend'
       BACKEND_PRESETS.each do |preset|
-        this.steps.create(title: preset.to_s, finished: false)
+        self.steps.create(title: preset.to_s, finished: false)
       end
     when 'frontend'
       FRONTEND_PRESETS.each do |preset|
-        this.steps.create(title: preset.to_s, finished: false)
+        self.steps.create(title: preset.to_s, finished: false)
       end
     end
   end

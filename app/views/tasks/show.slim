@@ -1,7 +1,8 @@
+- @task.title.present?
 h1
   =< @task.title
 
-- !@task.description.blank?
+- if @task.description.present?
   p
     strong Description:
     =< @task.description
