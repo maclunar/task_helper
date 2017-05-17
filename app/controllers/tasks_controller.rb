@@ -20,9 +20,23 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
+      if params[:preset].present?
+        @task.add_preset_steps(params[:preset])
+      end
+
       redirect_to @task
     else
       render 'new'
+    end
+  end
+
+  def update
+    @task = Task.find(params[:id])
+
+    if @task.update(task_params)
+      redirect_to @task
+    else
+      render 'edit'
     end
   end
 
