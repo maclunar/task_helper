@@ -11,5 +11,9 @@ html lang="en"
     = csrf_meta_tag
 
   body
+    p class="notice"
+      = notice
+    p class="alert"
+      = alert
 
     == yield
