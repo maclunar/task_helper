@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require main
  *= require foundation_and_overrides
 
  */
@@ -25,6 +26,7 @@ body {
 }
 
 .header {
+  height: 45px;
   font-size: 0.9rem;
   text-align: right;
 }
