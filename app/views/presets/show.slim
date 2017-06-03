@@ -1,0 +1,14 @@
+h1
+  ' Preset:
+  = @preset.title
+
+strong Description:
+br
+= @preset.description
+br
+br
+
+=> link_to 'Edit', edit_preset_path(@preset)
+=> link_to 'Back to presets', presets_path
+= link_to 'Delete', preset_path(@preset), method: :delete,
+                    data: { confirm: 'Are you sure?' }

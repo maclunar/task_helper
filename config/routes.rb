@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :steps
   end
 
+  resources :presets do
+    resources :steps
+  end
+
   post 'steps/:step_id/unfinish', to: 'steps#unfinish'
   post 'steps/:step_id/finish', to: 'steps#finish'
 end
