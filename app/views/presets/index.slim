@@ -1,0 +1,12 @@
+h1 Presets
+
+= link_to 'New Preset', new_preset_path, class: 'cta center'
+= link_to 'New Task', new_task_path, class: 'center'
+
+br
+br
+
+table
+  - @presets.each do |preset|
+    tr
+      td = link_to preset.title, preset_path(preset)

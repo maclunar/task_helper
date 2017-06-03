@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require main
  *= require foundation_and_overrides
 
  */
@@ -24,11 +25,18 @@ body {
   margin-right: auto;
 }
 
+.header {
+  height: 45px;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
 .center {
   display: block;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 h1 {
@@ -38,6 +46,7 @@ h1 {
 .cta {
   text-align: center;
   font-size: 1.7rem;
+  padding: 10px 0 10px 0;
 }
 
 table {
