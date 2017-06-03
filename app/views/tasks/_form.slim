@@ -26,6 +26,13 @@
       => label_tag(:preset_backend, 'Backend steps')
       => radio_button_tag(:preset, 'frontend')
       = label_tag(:preset_frontend, 'Frontend steps')
+	  
+  = f.fields_for :steps do |builder|
+    fieldset
+      = builder.label :title
+      = builder.text_field :title
+      = builder.label :finished
+      = builder.check_box :finished
 
   p
     = f.submit
