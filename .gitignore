@@ -22,3 +22,4 @@
 
 # Ignore vim temporary files
 *.swp
+*.DS_store
