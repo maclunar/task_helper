@@ -27,10 +27,5 @@
       => radio_button_tag(:preset, 'frontend')
       = label_tag(:preset_frontend, 'Frontend steps')
 
-  - unless @task.persisted?
-    = select.tag(:preset, options_for_select(['backend', 'backend'], ['frontend', 'frontend'))
-      = options_for_select([['backend', 'backend'], ['frontend', 'frontend']])
-    /= select(:preset, [['backend', 'backend'], ['frontend', 'frontend']])
-
   p
     = f.submit
