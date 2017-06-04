@@ -27,15 +27,17 @@ p
 p
   | Add step:
   = form_for([@task, @task.steps.build]) do |f|
-    p
-      => f.label :title
-      = f.text_field :title
-
-    p
-      => f.label :finished
-      => f.check_box :finished
-
-      = f.submit
+    = f.fields_for :steps do |builder|
+      = render 'step_fields', f: builder
+    / p
+/       => f.label :title
+/       = f.text_field :title
+/
+/     p
+/       => f.label :finished
+/       => f.check_box :finished
+/
+/       = f.submit
 
 
 => link_to 'Back to tasks', tasks_path

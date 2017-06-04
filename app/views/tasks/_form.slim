@@ -18,7 +18,7 @@
   p
     = f.label :description
     br
-    = f.text_area(:description, size: '40x10')
+    = f.text_area(:description, size: '40x5')
 
   - unless @task.persisted?
     p
@@ -28,11 +28,7 @@
       = label_tag(:preset_frontend, 'Frontend steps')
 	  
   = f.fields_for :steps do |builder|
-    fieldset
-      = builder.label :title
-      = builder.text_field :title
-      = builder.label :finished
-      = builder.check_box :finished
+    = render 'step_fields', f: builder
 
   p
     = f.submit
